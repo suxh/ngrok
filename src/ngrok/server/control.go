@@ -89,7 +89,7 @@ func NewControl(ctlConn conn.Conn, authMsg *msg.Auth) {
 		return
 	}
 	if err := tokenAuth.Auth(authMsg.User); err != nil {
-		failAuth(errors.New("Invalid token"))
+		failAuth(err)
 		return
 	}
 
