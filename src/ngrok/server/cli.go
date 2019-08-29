@@ -29,14 +29,14 @@ func parseArgs() *Options {
 	flag.Parse()
 
 	return &Options{
-		httpAddr:      *httpAddr,
-		httpsAddr:     *httpsAddr,
-		tunnelAddr:    *tunnelAddr,
-		domain:        *domain,
-		tlsCrt:        *tlsCrt,
-		tlsKey:        *tlsKey,
-		logto:         *logto,
-		loglevel:      *loglevel,
-		tokenFilePath: *tokenFile,
+		httpAddr:   *httpAddr,
+		httpsAddr:  *httpsAddr,
+		tunnelAddr: *tunnelAddr,
+		domain:     *domain,
+		tlsCrt:     *tlsCrt,
+		tlsKey:     *tlsKey,
+		logto:      *logto,
+		loglevel:   *loglevel,
+		tokenFile:  *tokenFile,
 	}
 }
