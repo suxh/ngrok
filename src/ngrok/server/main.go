@@ -3,6 +3,7 @@ package server
 import (
 	"crypto/tls"
 	"math/rand"
+	"ngrok/auth"
 	"ngrok/conn"
 	log "ngrok/log"
 	"ngrok/msg"
@@ -104,6 +105,9 @@ func Main() {
 
 	// init logging
 	log.LogTo(opts.logto, opts.loglevel)
+
+	// auth token
+	auth.SetTokenFile(opts.tokenFile)
 
 	// seed random number generator
 	seed, err := util.RandomSeed()

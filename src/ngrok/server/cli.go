@@ -13,6 +13,7 @@ type Options struct {
 	tlsKey     string
 	logto      string
 	loglevel   string
+	tokenFile  string
 }
 
 func parseArgs() *Options {
@@ -24,16 +25,18 @@ func parseArgs() *Options {
 	tlsKey := flag.String("tlsKey", "", "Path to a TLS key file")
 	logto := flag.String("log", "stdout", "Write log messages to this file. 'stdout' and 'none' have special meanings")
 	loglevel := flag.String("log-level", "DEBUG", "The level of messages to log. One of: DEBUG, INFO, WARNING, ERROR")
+	tokenFile := flag.String("tokenFile", "/etc/ngrok/htpasswd", "Path to token file")
 	flag.Parse()
 
 	return &Options{
-		httpAddr:   *httpAddr,
-		httpsAddr:  *httpsAddr,
-		tunnelAddr: *tunnelAddr,
-		domain:     *domain,
-		tlsCrt:     *tlsCrt,
-		tlsKey:     *tlsKey,
-		logto:      *logto,
-		loglevel:   *loglevel,
+		httpAddr:      *httpAddr,
+		httpsAddr:     *httpsAddr,
+		tunnelAddr:    *tunnelAddr,
+		domain:        *domain,
+		tlsCrt:        *tlsCrt,
+		tlsKey:        *tlsKey,
+		logto:         *logto,
+		loglevel:      *loglevel,
+		tokenFilePath: *tokenFile,
 	}
 }
